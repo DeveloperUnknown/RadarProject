@@ -49,9 +49,9 @@ fun main(args : Array<String>)
   {
     args.size < 3 ->
     {
-      println("Online usage: <ip> <sniff option> <gaming pc>")
+      println("Online usage: <ip|if> <sniff option> <gaming pc>")
 
-      println("Offline usage: <ip> <sniff option> <gaming pc> <offline.pcap>")
+      println("Offline usage: <ip|if> <sniff option> <gaming pc> <offline.pcap>")
       System.exit(-1)
 
     }
@@ -60,17 +60,17 @@ fun main(args : Array<String>)
 
       println("Loading PCAP File.. " + args[3])
 
-      Sniffer.sniffLocationOffline(args[3])
-      val jsettings = Settings()
-      val ui = GLMap(jsettings.loadsettings())
-      ui.show()
-    }
-    else          ->
-    {
-      Sniffer.sniffLocationOnline()
-      val jsettings = Settings()
-      val ui = GLMap(jsettings.loadsettings())
-      ui.show()
-    }
-  }
+         Sniffer.sniffLocationOffline(args[3])
+         val jsettings = Settings()
+         val ui = GLMap(jsettings.loadsettings())
+         ui.show()
+      }
+      else          ->
+      {
+         Sniffer.sniffLocationOnline()
+         val jsettings = Settings()
+         val ui = GLMap(jsettings.loadsettings())
+         ui.show()
+      }
+   }
 }
