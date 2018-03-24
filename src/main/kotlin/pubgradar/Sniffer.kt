@@ -75,7 +75,7 @@ class Sniffer
 
       val devDesc = choices.first { it.dev.getName() == Args[0] || it.address.hostAddress == Args[0] }
       nif = devDesc.dev
-      val localAddr = if (Args.size == 3) InetAddress.getByName(Args[2]) as Inet4Address else devDesc.address
+      val localAddr = if (Args.size >= 3) InetAddress.getByName(Args[2]) as Inet4Address else devDesc.address
       sniffOption = SniffOption.valueOf(Args[1])
       this.nif = nif
       this.targetAddr = localAddr
